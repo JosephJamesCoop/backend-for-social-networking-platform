@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/JosephJamesCoop/backend-for-social-networking-platform#readme",
   "dependencies": {
+    "express": "^4.17.3",
     "mongodb": "^4.4.1",
     "mongoose": "^6.2.5",
     "sequelize": "^6.17.0"
