@@ -74,7 +74,7 @@ const userController = {
   addFriend({ params, body }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
-      { $push: { replies: body } },
+      { $push: { friends: body } },
       { new: true , runValidators: true },
     )
       .then((dbUserData) => {
