@@ -1,61 +1,63 @@
-const { Schema, model, Types } = require('mongoose');
+const { Schema, model, Types } = require("mongoose");
 
-const ReactionSchema = new Schema({
-  // set custom id to avoid confusion with parent comment _id
-  ReactionId: {
-    type: Schema.Types.ObjectId,
-    default: () => new Types.ObjectId(),
+const ReactionSchema = new Schema(
+  {
+    // set custom id to avoid confusion with parent comment _id
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
+    },
+    reactionBody: {
+      type: String,
+      required: true,
+      length: 1 - 280,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   },
-  ReactionBody: {
-    type: String,
-    required: true,
-    length: 1-280
-  },
-  username: {
-    type: String,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-},
-{
-  toJSON: {
-    getters: true
+  {
+    toJSON: {
+      getters: true,
+    },
   }
-}
 );
 
-const ThoughtSchema = new Schema({
-  thoughtText: {
-    type: String,
-    required: true,
-    length: 1-280,
+const ThoughtSchema = new Schema(
+  {
+    thoughtText: {
+      type: String,
+      required: true,
+      length: 1 - 280,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    reactions: [ReactionSchema],
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
- username: {
-    type: String,
-    required: true
-  },
-  reactions: [ReactionSchema]
-},
-{
-  toJSON: {
-    virtuals: true,
-    getters: true
-  },
-  id: false
-}
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    },
+    id: false,
+  }
 );
 
-ThoughtSchema.virtual('reactionCount').get(function() {
+ThoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
 });
 
-const Thought = model('Thought', ThoughtSchema);
+const Thought = model("Thought", ThoughtSchema);
 
 module.exports = Thought;

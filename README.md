@@ -9,6 +9,7 @@
       
   [GitHub Repo](https://github.com/JosephJamesCoop/backend-for-social-networking-platform)
       
+   [Video Walkthrough](https://drive.google.com/file/d/1Zc6cA345JCGbUM77ZQvYU8LvDqju9IPJ/view)
       
   ## Table of Contents (Optional)
       
@@ -39,7 +40,7 @@
   ## Badges
       
   [![badge](https://img.shields.io/badge/MongoDb-JavaScript-red)]() 
-   
+     [![badge](https://img.shields.io/badge/Service-Worker-red)]()   [![badge](https://img.shields.io/badge/NoSQL-MongoDB-blue)]()   [![badge](https://img.shields.io/badge/Offline-PWA-green)]() 
    
       
   ## Features
