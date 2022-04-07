@@ -18,14 +18,13 @@ router
 
 // Set up GET one, PUT, and DELETE at /api/Users/:id
 router
-  .route('/:userId')
+  .route('/:id')
   .get(getUserById)
   .put(updateUser)
   .delete(deleteUser);
 
-router
-  .route('/:userId/friends/:friendId')
-  .get(addFriend)
+  router.route('/:userId/friends/:friendId')
   .delete(removeFriend)
+  .put(addFriend)
 
 module.exports = router;
